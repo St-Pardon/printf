@@ -1,13 +1,18 @@
 #include "main.h"
 /**
  * _putstr - prints string to stdout
- * @str: params
+ * @arg: list of params
  * Return: int
  */
 
-int _putstr(char *str)
+int _putstr(va_list arg)
 {
 	int i = 0;
+	char *str;
+
+	str = va_arg(arg, char *);
+	if (!str)
+		str = "(null)";
 
 	while (str[i] != '\0')
 	{
@@ -15,5 +20,5 @@ int _putstr(char *str)
 		i++;
 	}
 
-	return (0);
+	return (i);
 }
