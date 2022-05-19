@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 		{"c", _print_char},
 		{"s", _putstr},
 		{"%", _print_percent},
+		{"d", _print_int},
+		{"i", _print_int},
 		{NULL, NULL}
 	};
 
@@ -25,23 +27,24 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			len++;
-		}
-		else/*if %, we loop throught the stuct list above*/
-		{
+		if (format[i] == '%')
+		{/*if %, we loop throught the stuct list above*/
 			for (j = 0; func_list[j].id != NULL; j++)
 			{
 				if (format[i + 1] == func_list[j].id[0])
 				{
-					len += func_list[j].func(args);
+					len += func_list[j].func(args);/*whatever is returned increment len*/
 					break;
 				}
 			}
 			i++;
 		}
+		else
+		{
+			_putchar(format[i]);
+			len++;
+		}
+
 	}
 	va_end(args);
 	return (len);
