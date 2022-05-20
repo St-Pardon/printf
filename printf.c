@@ -16,16 +16,15 @@
 int _printf(const char *format, ...)
 {
 	int i, j, len = 0;
-
 	f_id func_list[] = {/*pairing the format id to a handling function*/
 		{"c", _print_char},
 		{"s", _putstr},
 		{"%", _print_percent},
 		{"d", _print_int},
 		{"i", _print_int},
+		{"b", _print_binary},
 		{NULL, NULL}
 	};
-
 	va_list args;
 
 	va_start(args, format);

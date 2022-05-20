@@ -29,5 +29,8 @@ int print_number(int n);
 int _print_int(va_list arg);
 int int_length(unsigned int n);
 int get_exponent(int len);
+int _print_binary (va_list);
+void rev_string(char *);
+void _putbase(char *str);
 
 #endif

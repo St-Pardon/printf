@@ -22,3 +22,24 @@ int _putstr(va_list arg)
 
 	return (i);
 }
+
+
+/**
+ * rev_string - reverses a str
+ * @str: string to reverse
+ */
+void rev_string(char *str)
+{
+	int len, top;
+	char tmp;
+
+	for (len = 1; str[len]; len++)
+		;
+
+	for (top = 0; top < len; top++, len--)
+	{
+		tmp = str[len - 1];
+		str[len - 1] = str[top];
+		str[top] = tmp;
+	}
+}
