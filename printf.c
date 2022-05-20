@@ -2,7 +2,8 @@
 
 /*
  * File: _printf.c
- * Authors: [Onyedikachi Onu](https://github.com/St-Pardon) and [Raji R.Yewand](https://github.com/wandexdev).
+ * Authors: [Onyedikachi Onu](https://github.com/St-Pardon) and
+ * [Raji R.Yewand](https://github.com/wandexdev).
  * Desc: Performs formatted output conversion and Print Data
  */
 
