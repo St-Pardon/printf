@@ -2,42 +2,38 @@
 
 /**
  * print_number - prints an integer
- * @n: param
+ * @num: param
  * Return: int
  */
 
-int print_number(int n)
+int print_number(int num)
 {
 	int len;
-	unsigned int i, j, k, count;
+	unsigned int exponent, intger, remainder, i;
 
-	if (n < 0)
+	i = num;
+
+	if (num < 0)
 	{
-		_putchar(45);
-		i = n * -1;
+		i = -num;
+		_putchar('-');
 	}
-	else
+	len = int_length(i);
+	exponent = get_exponent(len);
+
+	while (exponent > 0)
 	{
-		i = n;
-	}
+		intger = i / exponent;
+		_putchar(intger + 48);
+		remainder = i - (intger * exponent);
+		exponent = exponent / 10;
 
-	k = i;
-	j = i;
-	count = 1;
-
-	for (len = 0; k > 0; len++)
-		k = k / 10;
-
-
-	while (j > 9)
-	{
-		j /= 10;
-		count *= 10;
-	}
-
-	for (; count >= 1; count /= 10)
-	{
-		_putchar(((i / count) % 10) + 48);
+		if (remainder < exponent)
+		{
+			_putchar('0');
+			exponent = exponent / 10;
+		}
+		i = remainder;
 	}
 
 	return (len);
