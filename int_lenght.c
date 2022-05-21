@@ -30,3 +30,20 @@ int get_exponent(int len)
 		exponent = exponent * 10;
 	return (exponent);
 }
+
+/**
+ * binary_len - gets the length of binary number
+ * @n: param
+ * Return: int
+ */
+
+int binary_len(unsigned int n)
+{
+	int len;
+
+	for (len = 0; n > 0; len++)
+	{
+		n = n / 2;
+	}
+	return (len);
+}
