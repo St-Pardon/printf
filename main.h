@@ -32,7 +32,7 @@ int int_length(unsigned int n);
 int get_exponent(int len);
 int _print_binary(va_list);
 int binary_len(unsigned int n);
-void rev_string(char *);
+char *rev_string(char *);
 void _putbase(char *str);
-
+char *_cpymem(char *dest, char *src, unsigned int n);
 #endif
