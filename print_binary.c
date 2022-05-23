@@ -16,19 +16,19 @@ void _putbase(char *str)
 
 /**
  * _print_binary - Converts a num base 2
- * @list: param List
+ * @args: param List
  * Return: int
  */
-int _print_binary(va_list list)
+int _print_binary(va_list args)
 {
 	int num, i, len;
 	char *str;
 
-	num =  va_arg(list, unsigned int);
+	num =  va_arg(args, unsigned int);
 	len = binary_len(num);
 	str = malloc(sizeof(char) * len + 1);
 	if (str == NULL)
-		return (1);
+		return (-1);
 	for (i = 0; num > 0; i++)
 	{
 		if (num % 2 == 0)

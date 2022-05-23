@@ -67,6 +67,19 @@ int _identifier(const char *format, f_id func_list[], va_list args)
 					break;
 				}
 			}
+			if (func_list[j].id == NULL && format[i + 1] != ' ')
+			{
+				if (format[i + 10] != '\0')
+				{
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+					len += 2;
+				}
+				else
+				{
+					return (-1);
+				}
+			}
 			i++;
 		}
 		else
