@@ -2,13 +2,13 @@
 
 /**
  * print_number - prints an integer
- * @arg: param
+ * @args: param
  * Return: int
  */
 
-int print_number(va_list arg)
+int print_number(va_list args)
 {
-	int arg = va_arg(arg, int);
+	int arg = va_arg(args, int);
 	int len = 0, half = 1;
 	unsigned int i;
 
