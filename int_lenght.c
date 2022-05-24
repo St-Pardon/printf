@@ -37,9 +37,9 @@ int get_exponent(int len)
  * Return: int
  */
 
-int binary_len(unsigned int n)
+unsigned int binary_len(unsigned int n)
 {
-	int len;
+	unsigned int len;
 
 	for (len = 0; n > 0; len++)
 	{

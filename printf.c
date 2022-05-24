@@ -22,7 +22,9 @@ int _printf(const char *format, ...)
 		{"%", _print_percent},
 		{"d", _print_int},
 		{"i", _print_int},
+		{"r", _print_reverse},
 		{"b", _print_binary},
+		{"R", rot13},
 		{NULL, NULL}
 	};
 	va_list args;
@@ -50,7 +52,7 @@ int _printf(const char *format, ...)
 
 int _identifier(const char *format, f_id func_list[], va_list args)
 {
-	int i, j, len = 0;
+	int i, j, k, len = 0;
 
 	if (!format)
 		return (-1); /*falsy value used to check if format is empty*/
@@ -63,7 +65,10 @@ int _identifier(const char *format, f_id func_list[], va_list args)
 			{
 				if (format[i + 1] == func_list[j].id[0])
 				{
-					len += func_list[j].func(args);
+					k = func_list[j].func(args);
+					if (k == -1)
+						return (-1);
+					len += k;
 					break;
 				}
 			}
@@ -76,9 +81,7 @@ int _identifier(const char *format, f_id func_list[], va_list args)
 					len += 2;
 				}
 				else
-				{
 					return (-1);
-				}
 			}
 			i++;
 		}
@@ -87,7 +90,6 @@ int _identifier(const char *format, f_id func_list[], va_list args)
 			_putchar(format[i]);
 			len++;
 		}
-
 	}
 	return (len);
 }

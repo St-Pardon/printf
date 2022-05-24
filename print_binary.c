@@ -21,14 +21,27 @@ void _putbase(char *str)
  */
 int _print_binary(va_list args)
 {
-	int num, i, len;
-	char *str;
+	long int num;
+	int i, len;
+	char *str, *rev;
 
-	num =  va_arg(args, unsigned int);
+	num =  va_arg(args, int);
+
+	if (num < 0)
+	{
+		_putchar('-');
+		num = num * -1;
+	}
 	len = binary_len(num);
 	str = malloc(sizeof(char) * len + 1);
 	if (str == NULL)
 		return (-1);
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	for (i = 0; num > 0; i++)
 	{
 		if (num % 2 == 0)
@@ -38,8 +51,12 @@ int _print_binary(va_list args)
 		num = num / 2;
 	}
 	str[i] = '\0';
-	rev_string(str);
+	rev = rev_string(str);
+	if (rev_str == NULL)
+		return (-1);
+
 	_putbase(str);
 	free(str);
+	free(rev);
 	return (len);
 }
