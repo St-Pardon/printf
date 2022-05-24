@@ -10,4 +10,3 @@ The `printf()` function is a c function used to output results to the standard i
 
 ## How it work
 
-DFHDIFUDFODsomething something
