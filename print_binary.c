@@ -52,7 +52,7 @@ int _print_binary(va_list args)
 	}
 	str[i] = '\0';
 	rev = rev_string(str);
-	if (rev_str == NULL)
+	if (rev == NULL)
 		return (-1);
 
 	_putbase(str);

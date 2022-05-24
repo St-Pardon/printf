@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * _print_reversed - reverse and print a string
@@ -9,7 +9,7 @@
 int _print_reversed(va_list arg)
 {
 	int len;
-	char *str, char *ptr;
+	char *str, *ptr;
 
 	str = va_arg(arg, char *);
 
@@ -47,7 +47,7 @@ int rot13(va_list arg)
 	str = malloc(sizeof(char) * i + 1);
 	if (str == NULL)
 		return (-1);
-	str = _memcpy(str, str1, i);
+	str = _cpymem(str, str1, i);
 	if (str == NULL)
 		return (0);
 	for (i = 0; str[i] != '\0'; i++)
