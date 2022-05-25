@@ -1,1 +1,4 @@
 .TH man 3 "20 May 2022" "0.01" "_printf man page"
+.SH NAME
+.B _printf
+- A pair project on the printf function
