@@ -34,16 +34,17 @@ int get_exponent(int len)
 /**
  * binary_len - gets the length of binary number
  * @n: param
+ * @b: param
  * Return: int
  */
 
-unsigned int binary_len(unsigned int n)
+unsigned int binary_len(unsigned int n, int b)
 {
 	unsigned int len;
 
 	for (len = 0; n > 0; len++)
 	{
-		n = n / 2;
+		n = n / b;
 	}
 	return (len);
 }

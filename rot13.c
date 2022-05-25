@@ -21,7 +21,6 @@ int _print_reversed(va_list arg)
 	for (len = 0; ptr[len] != '\0'; len++)
 		_putchar(ptr[len]);
 
-	_putchar('\0');
 	free(ptr);
 
 	return (len);
@@ -36,33 +35,26 @@ int _print_reversed(va_list arg)
 
 int rot13(va_list arg)
 {
-	int i, j, c;
-	char *str1, *str;
+	int i, j;
+	char  *str;
 	char normal[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char reved[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str1 = va_arg(arg, char *);
-	for (i = 0; str1[i] != '\0'; i++)
-		;
-	str = malloc(sizeof(char) * i + 1);
+	str = va_arg(arg, char *);
 	if (str == NULL)
 		return (-1);
-	str = _cpymem(str, str1, i);
-	if (str == NULL)
-		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; j <= 48; j++)
+		for (j = 0; j <= 52; j++)
 		{
 			if (str[i] == normal[j])
 			{
-				str[i] = reved[j];
+				_putchar(reved[j]);
 				break;
 			}
 		}
+		if (j == 53)
+			_putchar(str[i]);
 	}
-	for (c = 0; str[c] != '\0'; c++)
-		_putchar(str[c]);
-	free(str);
-	return (c);
+	return (i);
 }
