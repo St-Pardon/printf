@@ -9,7 +9,9 @@
 /**
  * struct format - structure to pair format id to function
  * @id: The format identifies e.g %d, %c
- * @func: The functions for the id
+ * @func: The functions for the id 
+ *
+ * Description: strut that stores pointers to a printer functions
  */
 
 struct format
